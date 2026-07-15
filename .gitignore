@@ -1,0 +1,27 @@
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+ENV.venv/
+env.bak/
+
+# Python Cache and Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Environments and Secrets
+.env
+.venv
+env.ini
+.env.secret
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
