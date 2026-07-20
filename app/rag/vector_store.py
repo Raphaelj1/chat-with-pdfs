@@ -25,3 +25,36 @@ class VectorStore:
             embeddings=embeddings,
             metadatas=metadatas
         )
+        
+    
+    def search(
+        self,
+        query_embedding: list[float],
+        limit: int = 5
+    ) -> list[Document]:
+        """
+        Search for the most similar documents.
+        """
+        
+        results = self.collection.query(
+            query_embeddings=query_embedding,
+            n_results=limit
+        )
+        
+        documents: list[Document] = []
+        
+        retrieved_documents = results["documents"][0]
+        retrieved_metadatas = results["metadatas"][0]
+        
+        for text, metadata in zip(
+            retrieved_documents,
+            retrieved_metadatas
+        ):
+            documents.append(
+                Document(
+                    text=text,
+                    metadata=metadata
+                )
+            )
+            
+        return documents
