@@ -3,8 +3,6 @@ from app.rag.vector_store import VectorStore
 from app.models.document import Document
 
 
-vector_store = VectorStore()
-
 def retrieve(
     query: str,
     limit: int = 5,
