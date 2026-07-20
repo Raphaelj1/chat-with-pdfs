@@ -1,7 +1,7 @@
-import uuid
 from chromadb import PersistentClient
 from app.config import DB_DIR
 from app.models.document import Document
+from app.utils.ids import generate_chunk_id
 
 
 class VectorStore:
@@ -15,7 +15,7 @@ class VectorStore:
         documents: list[Document],
         embeddings: list[list[float]]
     ) -> None:
-        ids = [str(uuid.uuid4()) for _ in documents]
+        ids = [generate_chunk_id(doc) for doc in documents]
         texts = [doc.text for doc in documents]
         metadatas = [doc.metadata for doc in documents]
         
