@@ -1,8 +1,5 @@
-# import chromadb
-# from chromadb.api.models.Collection import Collection
 from chromadb import PersistentClient, Collection
-
-from app.config import DB_DIR
+from backend.app.config import DB_DIR
 
 
 class CollectionManager:

@@ -1,6 +1,8 @@
-from app.models.document import Document
-from app.rag.llm import generate
-from app.rag.retriever import retrieve
+from backend.app.models.document import Document
+from backend.app.rag.llm import generate
+from backend.app.rag.retriever import retrieve
+from backend.app.rag.vector_store import VectorStore
+from backend.app.rag.collection_manager import CollectionManager
 
 
 def build_context(documents: list[Document]) -> str:
@@ -29,12 +31,16 @@ Answer:
 """
 
 
-def ask(question: str) -> str:
+def ask(question: str, session_id: str) -> str:
     """
     Execute the complete RAG pipeline.
     """
+    
+    manager = CollectionManager()
+    collection = manager.get_or_create_collection(session_id)
+    vector_store = VectorStore(collection)
 
-    documents = retrieve(question)
+    documents = retrieve(question, vector_store)
     context = build_context(documents)
 
     prompt = build_prompt(

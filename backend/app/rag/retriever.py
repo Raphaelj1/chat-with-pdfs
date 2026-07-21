@@ -5,6 +5,7 @@ from backend.app.models.document import Document
 
 def retrieve(
     query: str,
+    vector_store: VectorStore,
     limit: int = 5,
 ) -> list[Document]:
     """
@@ -12,8 +13,6 @@ def retrieve(
     """
 
     query_embedding = embed_text(query)
-
-    vector_store = VectorStore()
 
     return vector_store.search(
         query_embedding=query_embedding,
