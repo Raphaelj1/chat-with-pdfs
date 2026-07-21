@@ -1,13 +1,12 @@
-from chromadb import PersistentClient
+from chromadb import Collection
 from backend.app.config import DB_DIR
 from backend.app.models.document import Document
 from backend.app.utils.ids import generate_chunk_id
 
 
 class VectorStore:
-    def __init__(self):
-        self.client = PersistentClient(path=str(DB_DIR))
-        self.collection = self.client.get_or_create_collection(name="documents")
+    def __init__(self, collection: Collection):
+        self.collection = collection
     
     
     def add_documents(
