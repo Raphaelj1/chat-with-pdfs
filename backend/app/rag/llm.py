@@ -1,5 +1,5 @@
 from openai import OpenAI
-from app.config import OPENAI_API_KEY, LLM_MODEL
+from backend.app.config import OPENAI_API_KEY, LLM_MODEL
 
 
 client = OpenAI(api_key=OPENAI_API_KEY)

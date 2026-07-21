@@ -1,6 +1,6 @@
-from app.rag.embeddings import embed_text
-from app.rag.vector_store import VectorStore
-from app.models.document import Document
+from backend.app.rag.embeddings import embed_text
+from backend.app.rag.vector_store import VectorStore
+from backend.app.models.document import Document
 
 
 def retrieve(

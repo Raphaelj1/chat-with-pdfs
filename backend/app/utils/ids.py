@@ -1,5 +1,5 @@
 import hashlib
-from app.models.document import Document
+from backend.app.models.document import Document
 
 
 def generate_chunk_id(document: Document) -> str:

@@ -1,5 +1,5 @@
-from app.config import CHUNK_SIZE, CHUNK_OVERLAP
-from app.models.document import Document
+from backend.app.config import CHUNK_SIZE, CHUNK_OVERLAP
+from backend.app.models.document import Document
 
 
 def split_document(document: Document) -> list[Document]:

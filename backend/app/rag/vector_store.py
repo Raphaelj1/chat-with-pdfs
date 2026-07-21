@@ -1,7 +1,7 @@
 from chromadb import PersistentClient
-from app.config import DB_DIR
-from app.models.document import Document
-from app.utils.ids import generate_chunk_id
+from backend.app.config import DB_DIR
+from backend.app.models.document import Document
+from backend.app.utils.ids import generate_chunk_id
 
 
 class VectorStore:
